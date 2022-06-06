@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1201_自定义指令</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        需求1：定义一个v-big指令，和v-text功能类似，但会把绑定的数值放大10倍；
+        需求2：定义一个v-fbind指令，和v-bind功能类似，但可以让其所绑定的input元素默认获取焦点；
+     -->
+    <div id="root">
+        <h2>{{info}}</h2>
+        <h2>原数字：<span v-text="number"></span></h2>
+        <h2>放大10倍：<span v-big="number"></span></h2>
+        <button @click="number++">number++</button>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        new Vue({
+            el: '#root',
+            data: {
+                info: '自定义指令',
+                number: 10
+            },
+            directives: {
+                /*
+                    big函数何时会被调用？
+                        1、指令与元素成功绑定时（一上来）；
+                        2、指令所在的模版被重新解析时；
+                            data中的数据被更改时，会触发setter，在更改数据后，会重新解析模版；
+                */
+                big(element, binding) {
+                    console.dir(element) // 这里的element是真实DOM元素
+                    console.log(element instanceof HTMLElement) // true
+                    console.log(binding)
+                    element.innerText = binding.value * 10;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
