@@ -42,26 +42,30 @@
                     // console.log(binding)
                     element.innerText = binding.value * 10
                 },
-                // fbind(element, binding) {
-                //     element.value = binding.value
-                //     // 初始化的时候，没有focus，只有在点击按钮，触发data中数据改变时候,会重新解析模版
-                //     //      然后fbind指令就会再一次被调用，此时就能focus了
-                //     element.focus()
-                // }
-                fbind: {
-                    // 指令与元素成功绑定时（一上来）
-                    bind(element, binding) {
-                        element.value = binding.value
-                    },
-                    // 指令所在元素被插入页面时
-                    inserted(element, binding) {
-                        element.focus()
-                    },
-                    // 指令所在的模版被重新解析时
-                    update(element, binding) {
-                        element.value = binding.value
-                    },
+
+                fbind(element, binding) {
+                    element.value = binding.value
+                    // 初始化的时候，没有focus，
+                    //  此时，虽然绑定成功，但是元素还未被插入页面，
+                    //  只有在点击按钮，触发data中数据改变时候,会重新解析模版
+                    //      然后fbind指令就会再一次被调用，此时元素已被插入页面，就能focus了
+                    element.focus()
                 }
+
+                // fbind: {
+                //     // 指令与元素成功绑定时（一上来）
+                //     bind(element, binding) {
+                //         element.value = binding.value
+                //     },
+                //     // 指令所在元素被插入页面时
+                //     inserted(element, binding) {
+                //         element.focus()
+                //     },
+                //     // 指令所在的模版被重新解析时
+                //     update(element, binding) {
+                //         element.value = binding.value
+                //     },
+                // }
             }
         })
     </script>
