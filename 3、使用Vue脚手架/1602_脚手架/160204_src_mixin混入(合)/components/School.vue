@@ -1,5 +1,5 @@
 <template>
-  <div id="student">
+  <div id="school">
     <h2>{{ name }}</h2>
     <button @click="showName">显示名字</button>
   </div>
@@ -10,10 +10,10 @@
 //局部混入
 // import { m } from "../mixin_common";
 export default {
-  name: "Student",
+  name: "School",
   data() {
     return {
-      name: "xxxx学生",
+      name: "xxxx大学",
     };
   },
   //   methods: {
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style>
-#student {
-  background-color: darkseagreen;
+#school {
+  background-color: cornflowerblue;
 }
 </style>
