@@ -20,6 +20,9 @@ export const m = {
       console.log(this.name);
     },
   },
+};
+
+export const n = {
   mounted() {
     console.log("挂载完毕");
   },

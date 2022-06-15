@@ -8,7 +8,7 @@
 <script>
 //分别暴露
 //局部混入
-// import { m } from "../mixin_common";
+// import { m, n } from "../mixin_common";
 export default {
   name: "Student",
   data() {
@@ -16,12 +16,12 @@ export default {
       name: "xxxx学生",
     };
   },
-  //   methods: {
-  //     showName() {
-  //       console.log(this.name);
-  //     },
-  //   },
-//   mixins: [m],
+  methods: {
+    showName() {
+      console.log(this.name);
+    },
+  },
+  // mixins: [m,n],
 };
 </script>
 
