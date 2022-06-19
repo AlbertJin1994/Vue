@@ -274,7 +274,7 @@
 
 2. 图示：
 
-   ![Vue封装的过度与动画](/Users/ryuu/Desktop/マトメ/Vue/Vue/3、使用Vue脚手架/1602_脚手架/Vue封装的过度与动画.png)
+   ![Vue封装的过度与动画](./assets/Vue封装的过度与动画.png)
 
 3. 写法：
 
