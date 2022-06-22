@@ -1,25 +1,25 @@
 <template>
-  <div>
-    <button @click="getStudents">获取数据</button>
+  <div class="container">
+    <Search />
+    <List />
   </div>
 </template>
 
 <script>
-// npm i axios
-import axios from "axios";
+/**
+ * Module not found: Error: Can't resolve '../fonts/glyphicons-halflings-regular.svg' in '/Users/ryuu/Desktop/マトメ/Vue/Vue/3、使用Vue脚手架/1602_脚手架/src/assets'
+ *  通过import引入bootstrap.css会报找不到某种字体的错，
+ *  建议将css文件放在public/css/下，然后在index.html中引入
+ *      <link rel="bootstrap" href="<%= BASE_URL %>css/bootstrap.css">
+ */
+// import './assets/bootstrap.css'
+import Search from './components/Search.vue'
+import List from './components/List.vue'
 export default {
   name: "App",
-  methods: {
-    getStudents() {
-      axios.get("http://localhost:8080/students").then(
-        (response) => {
-          console.log("请求成功了！ -- " + response.data);
-        },
-        (error) => {
-          console.log("请求失败了！ -- " + error.message);
-        }
-      );
-    },
+  components: {
+    Search,
+    List,
   },
 };
 </script>
