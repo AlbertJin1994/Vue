@@ -1,11 +1,9 @@
 <template>
   <div class="category">
-    <h3>{{ title }}分类</h3>
-    <!-- <ul>
-      <li v-for="(item, index) in this.list" :key="index">{{ item }}</li>
-    </ul> -->
-    <slot name="center"><h1>center插槽</h1></slot>
-    <slot name="footer"><h1>footer插槽</h1></slot>
+    <h3>{{ title }}</h3>
+    <slot name="scopeSlot" :listData="games" msg="Hello World!">
+      <h1>这是作用域插槽</h1>
+    </slot>
   </div>
 </template>
 
@@ -13,6 +11,11 @@
 export default {
   name: "Cateory",
   props: ["title"],
+  data() {
+    return {
+      games: ["红色警戒", "穿越火线", "劲舞团", "超级玛丽"],
+    };
+  },
 };
 </script>
 
