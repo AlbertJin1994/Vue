@@ -52,8 +52,6 @@ const mutations = {
 // 准备state对象--保存具体的数据
 const state = {
   sum: 1,
-  nation: "中国",
-  city: "厦门",
 };
 
 // 当state中的数据需要经过加工后再使用时，可以使用getters加工
