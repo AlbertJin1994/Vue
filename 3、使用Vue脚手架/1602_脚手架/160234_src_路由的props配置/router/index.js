@@ -29,6 +29,8 @@ export default new VueRouter({
               name: "xiangxi",
               path: "Detail/:id/:title",
               component: Detail,
+              // 路由的props配置：让路由组件更方便地收到参数
+
               // 第一种写法：props值为对象，该对象中所有的key-value的组合最终都会通过props传给Detail组件
               // props: { a: "Hello", b: "World" },
 
