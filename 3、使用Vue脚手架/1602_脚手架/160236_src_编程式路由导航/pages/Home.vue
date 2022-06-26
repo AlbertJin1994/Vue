@@ -21,15 +21,7 @@
         </li>
       </ul>
       <div>
-        <!-- 
-          缓存路由组件：
-            让不展示的路由组件保持挂载，不被销毁
-            <router-view>中包含了两个组件，Message和News
-              inclue属性是只设置News组件为缓存路由组件。
-         -->
-        <keep-alive include="News">
-          <router-view></router-view>
-        </keep-alive>
+        <router-view></router-view>
       </div>
     </div>
   </div>

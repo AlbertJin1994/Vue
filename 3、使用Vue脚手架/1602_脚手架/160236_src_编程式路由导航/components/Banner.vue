@@ -12,6 +12,7 @@ export default {
   name: "Banner",
   methods: {
     back() {
+      console.log(this.$router);
       this.$router.back();
     },
     forward() {

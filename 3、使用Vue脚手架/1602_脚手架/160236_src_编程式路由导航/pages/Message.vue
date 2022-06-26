@@ -37,10 +37,6 @@ export default {
     };
   },
   methods: {
-    /**
-     * 不借助<router-link>实现路由跳转，让路由跳转更加灵活
-     *  不仅仅局限于使用a标签
-     */
     pushShow(message) {
       this.$router.push({
         name: "xiangxi",
@@ -60,9 +56,6 @@ export default {
       });
     },
   },
-  beforeDestroy(){
-    console.log('Message组件即将被销毁')
-  }
 };
 </script>
 

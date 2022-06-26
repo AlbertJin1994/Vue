@@ -2,20 +2,32 @@
   <div>
     <ul>
       <li v-for="message in messageList" :key="message.id">
+        <!-- 
+          跳转并携带params参数方式一：，to的字符串写法
+         -->
+        <!-- <router-link
+          :to="`/Home/Message/Detail/${message.id}/${message.title}`"
+          >{{ message.title }}</router-link
+        > -->
+        <!-- 
+          跳转并携带params参数方式一：，to的对象写法
+          特别注意：路由携带params参数时，若使用to的对象写法，
+                    则不能使用path配置项，必须使用name配置！
+         -->
         <router-link
           :to="{
             name: 'xiangxi',
             query: {
               id: message.id,
               title: message.title,
+              a: 'Hey',
+              b: 'Yo',
             },
           }"
         >
           {{ message.title }}
         </router-link>
         &nbsp;&nbsp;
-        <button @click="pushShow(message)">push显示</button>
-        <button @click="replaceShow(message)">replace显示</button>
       </li>
     </ul>
     <hr />
@@ -36,33 +48,6 @@ export default {
       ],
     };
   },
-  methods: {
-    /**
-     * 不借助<router-link>实现路由跳转，让路由跳转更加灵活
-     *  不仅仅局限于使用a标签
-     */
-    pushShow(message) {
-      this.$router.push({
-        name: "xiangxi",
-        query: {
-          id: message.id,
-          title: message.title,
-        },
-      });
-    },
-    replaceShow(message) {
-      this.$router.replace({
-        name: "xiangxi",
-        query: {
-          id: message.id,
-          title: message.title,
-        },
-      });
-    },
-  },
-  beforeDestroy(){
-    console.log('Message组件即将被销毁')
-  }
 };
 </script>
 
