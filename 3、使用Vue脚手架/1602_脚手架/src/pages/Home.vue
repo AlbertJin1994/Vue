@@ -27,7 +27,13 @@
             <router-view>中包含了两个组件，Message和News
               inclue属性是只设置News组件为缓存路由组件。
          -->
-        <keep-alive include="News">
+        <!-- 缓存单个路由组件 -->
+        <!-- <keep-alive include="News">
+          <router-view></router-view>
+        </keep-alive> -->
+
+        <!-- 缓存多个路由组件 -->
+        <keep-alive :include="['News', 'Message']">
           <router-view></router-view>
         </keep-alive>
       </div>

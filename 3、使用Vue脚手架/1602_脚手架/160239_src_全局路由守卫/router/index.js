@@ -27,17 +27,6 @@ const router = new VueRouter({
         {
           path: "Message",
           component: Message,
-          beforeEnter: (to, from, next) => {
-            if (to.meta.isAuth) {
-              if (localStorage.getItem("name") === "ryu") {
-                next();
-              } else {
-                alert("用户名不对！");
-              }
-            } else {
-              next();
-            }
-          },
           meta: { title: "Message", isAuth: true },
           children: [
             {
@@ -59,21 +48,21 @@ const router = new VueRouter({
   ],
 });
 
-// /**
-//  * 全局前置路由守卫：
-//  *  初始化的时候被调用、每次路由切换之前被调用
-//  */
-// router.beforeEach((to, from, next) => {
-//   if (to.meta.isAuth) {
-//     if (localStorage.getItem("name") === "ryu") {
-//       next();
-//     } else {
-//       alert("用户名不对！");
-//     }
-//   } else {
-//     next();
-//   }
-// });
+/**
+ * 全局前置路由守卫：
+ *  初始化的时候被调用、每次路由切换之前被调用
+ */
+router.beforeEach((to, from, next) => {
+  if (to.meta.isAuth) {
+    if (localStorage.getItem("name") === "ryu") {
+      next();
+    } else {
+      alert("用户名不对！");
+    }
+  } else {
+    next();
+  }
+});
 
 /**
  * 全局后置路由守卫：
